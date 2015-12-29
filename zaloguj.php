@@ -25,7 +25,7 @@
 //	$haslo = htmlentities($haslo, ENT_QUOTES, "UTF-8");
 
 	if ($rezultat = @$polaczenie->query(
-	sprintf("SELECT * FROM users WHERE user='%s'",
+	sprintf("SELECT * FROM users WHERE login='%s'",
 	mysqli_real_escape_string($polaczenie,$login))))
 //  mysqli_real_escape_string($polaczenie,$haslo))))
 	{
@@ -41,7 +41,7 @@
 
 
 		$_SESSION['id'] = $wiersz['id'];
-		$_SESSION['user'] = $wiersz['user'];
+		$_SESSION['login'] = $wiersz['login'];
 		$_SESSION['email'] = $wiersz['email'];
 		$_SESSION['dnipremium'] = $wiersz['dnipremium'];
 
@@ -56,7 +56,7 @@
 
 	} else {
 
-	$_SESSION['blad'] = '<span style="color:red">Nieprawidłowy login lub hasło!</span>';
+	$_SESSION['blad'] = '<span style="color:orange">Nieprawidłowy login lub hasło!</span>';
 	header('Location: index.php');
 
 	}

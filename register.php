@@ -32,7 +32,7 @@
                 $ile_takich_maili = $rezultat->num_rows;
                 if($ile_takich_maili>0) { $wszystko_OK = false; $_SESSION['e_email'] = "Istnieje już konto przypisane do tego adresu e-mail"; }
 
-                $rezultat = $polaczenie->query("SELECT id FROM users WHERE user='$login'");
+                $rezultat = $polaczenie->query("SELECT id FROM users WHERE login='$login'");
                 if(!$rezultat) throw new Exception($polaczenie->error);
                 $ile_takich_loginow = $rezultat->num_rows;
                 if($ile_takich_loginow>0) { $wszystko_OK = false; $_SESSION['e_login'] = "Istnieje już konto przypisane do tego loginu"; }
